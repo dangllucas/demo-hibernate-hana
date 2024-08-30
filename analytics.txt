@@ -2,6 +2,21 @@ Hibernate Problem!
 
 - 6.4.10.Final: All Works!
 
+Hibernate: insert into demo (hans) values (?)
+Hibernate: select current_identity_value() from demo
+2024-08-30T13:10:46.498+02:00  INFO 55696 --- [demo] [nio-8080-exec-1] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    17791875 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    47319833 nanoseconds spent preparing 2 JDBC statements;
+    222964250 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    9094875 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+
 - 6.5.0.Final: ERROR
 
 Hibernate: insert into demo (hans) values (?)
@@ -55,6 +70,24 @@ Hibernate: select current_identity_value() from demo
     0 nanoseconds spent performing 0 L2C hits;
     0 nanoseconds spent performing 0 L2C misses;
     5957083 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 pre-partial-flushes;
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+
+- 6.6.0.Final: Extreme Long Duration
+
+Hibernate: insert into demo (hans) values (?)
+Hibernate: select current_identity_value() from demo
+2024-08-30T13:42:38.267+02:00  INFO 60918 --- [demo] [           main] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    14269292 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    41257625 nanoseconds spent preparing 2 JDBC statements;
+    109963625 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    3481208 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
     0 nanoseconds spent executing 0 pre-partial-flushes;
     0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
 }
